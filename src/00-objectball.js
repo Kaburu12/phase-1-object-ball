@@ -121,3 +121,36 @@ function gameObject (){
     }
    }
 }
+
+function numPointsScored(playerInput){
+	let game = gameObject()
+	for(let gameKey in game){
+		let teamObj = game[gameKey]
+		for (let playerObj in teamObj){
+			let playerObj= teamObj.Players
+			for(let playerKey in playerObj){
+				if(playerKey===playerInput){
+					return playerObj[playerKey].points
+				}
+			}
+		}
+	}
+}
+console.log(numPointsScored)
+
+const shoeSize = (names) => {
+  const game = gameObject();
+  for(const gameKey in game ){
+	  const teamObj = game[gameKey];
+	  const data = teamObj.players;
+	  
+		for(const key in data){
+			const player = key;
+			if( player === names){
+			  const shoeSize = data[key].shoe
+			  return `${names} shoe size is ${shoeSize}.`
+			}
+		}
+  }
+};
+shoeSize();
